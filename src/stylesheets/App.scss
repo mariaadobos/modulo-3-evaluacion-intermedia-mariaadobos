@@ -1,0 +1,14 @@
+@import 'components/pokeList';
+@import 'components/pokemon';
+@import 'vendors/normalize';
+
+.App{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &__title{
+        text-shadow: rgb(213, 213, 248) 2px 2px;
+    }
+}

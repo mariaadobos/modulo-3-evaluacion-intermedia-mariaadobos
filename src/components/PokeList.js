@@ -6,7 +6,7 @@ const PokeList = props => {
         <ul className="pokelist">
             {props.pokemonArray.map((item, index) => {
                 return (
-                    <li key={index}>
+                    <li key={index} className="pokelist__item">
                         <Pokemon
                         pokeName = {item.name}
                         imgUrl = {item.url}

@@ -1,8 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 
 const Pokemon = props => {
+    const onClickHandler = event => {
+        props.onClickHandler(event.target)
+    }
     return (
-        <React.Fragment>
+        <div className={`pokemon-container ${props.selected}`} onClick = {onClickHandler}>
             <img className="pokemon-img" src={props.imgUrl} alt={props.pokeName}/>
             <span className="pokemon-name">{props.pokeName}</span>
             <ul className="type-list">
@@ -13,7 +18,13 @@ const Pokemon = props => {
                 })}
             </ul>
                         
-        </React.Fragment>
+        </div>
     )
+}
+Pokemon.propTypes = {
+    id: PropTypes.number,
+    name: PropTypes.string,
+    url: PropTypes.string,
+    types: PropTypes.array
 }
 export default Pokemon;

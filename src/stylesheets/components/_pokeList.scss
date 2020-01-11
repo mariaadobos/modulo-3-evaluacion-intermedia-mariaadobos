@@ -16,5 +16,9 @@
     font-size: 18px;
     font-weight: 600;
     text-transform: capitalize;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 }

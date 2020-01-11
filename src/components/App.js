@@ -8,21 +8,25 @@ class App extends React.Component {
     super(props);
     this.state = {
       pokemonArray: PokemonArray,
-      isFavourite: ''
+      favourites: []
     }
     this.onClickHandler = this.onClickHandler.bind(this)
-    //this.markAsFavourite = this.markAsFavourite.bind(this)
   }
 
-  onClickHandler(data){
-    if (this.state.isFavourite === ''){
-      this.setState({isFavourite: 'selected'})
-      //data.closest('li').classList.add('selected')
-    } else{
-      this.setState({isFavourite: ''})
-      //
+  onClickHandler(name){
+    if (this.state.favourites.indexOf(name)===-1){
+      this.setState(prevState => ({
+        favourites: [...prevState.favourites, name]
+        
+      }))
+    } else {
+      const favouritesArray = this.state.favourites
+      const index = favouritesArray.indexOf(name)
+      favouritesArray.splice(index, 1)
+      this.setState({
+        favourites: favouritesArray
+      })
     }
-    //this.markAsFavourite(data)
   }
   
   render() {
@@ -32,7 +36,7 @@ class App extends React.Component {
         <PokeList 
         pokemonArray={this.state.pokemonArray}
         onClickHandler = {this.onClickHandler}
-        selected = {this.state.isFavourite}
+        selected = {this.state.favourites}
         />
       </div>
     );

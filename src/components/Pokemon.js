@@ -3,22 +3,16 @@ import PropTypes from 'prop-types';
 
 
 const Pokemon = props => {
-    const onClickHandler = event => {
-        props.onClickHandler(event.target)
-    }
     return (
-        <div className={`pokemon-container ${props.selected}`} onClick = {onClickHandler}>
+        <React.Fragment>
             <img className="pokemon-img" src={props.imgUrl} alt={props.pokeName}/>
             <span className="pokemon-name">{props.pokeName}</span>
             <ul className="type-list">
                 {props.pokeTypes.map((item, index) => {
-                    return (
-                        <li key={index} className="type-list__item">{item}</li>
-                    )
+                    return <li key={index} className="type-list__item">{item}</li>
                 })}
             </ul>
-                        
-        </div>
+        </React.Fragment>
     )
 }
 Pokemon.propTypes = {
